@@ -89,5 +89,33 @@ let navigatorBackwards ="";
 
       //Iteration 5: Palindrome check
 
-      const phraseToCheck = "Roma ni se conoce sin oro, ni se conoce sin amor";
+      const phraseToCheck = "Roma ni se cononoce sin oro, ni se conoce sin amor";
+      function isAPalindrome(phraseToCheck){
+        let phrase = "";
+        //we turn the phrase into a simpler version without spaces in lowercase to make the check easier
+        for (let index2 = 0; index2 < phraseToCheck.length; index2++) {
+            if (isALetter(phraseToCheck[index2])) {
+              phrase += phraseToCheck[index2].toLowerCase();
+            }
+        }
       
+      //we initialize 2 variables to check the beggining and end of the sentence
+      let left = 0
+      let right = phrase.length -1;
+        //loop to see if a character on the left is equal to the one on the right (beggining and end)
+      while(left < right){
+        //we move both variables to opposites sides to keep checking each character
+       
+        if(phrase[left] !== phrase[right]){
+            //if it does not match, we return a false
+            return false
+
+        } 
+        left ++;
+        right --;
+      
+    }
+    //if it ends the loop without returning a false, we can say that the phrase is really a palindrome
+    return true
+}
+console.log(isAPalindrome(phraseToCheck));
